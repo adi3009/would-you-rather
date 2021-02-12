@@ -1,10 +1,13 @@
 :root {
   --color-primary: #0326AE;
   --color-primary-800: #0326AE;
+  --color-primary-900: #001772;
   --color-primary-500: #3E65FF;
   --color-primary-inactive: #887EFF;
+  --color-primary-50: #EAE8FF;
   --color-secondary: #FDD835;
   --color-secondary-400: #FFEE58;
+  --color-secondary-800: #F9A825;
 }
 
 @tailwind base;
