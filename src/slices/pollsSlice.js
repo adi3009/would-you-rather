@@ -38,4 +38,6 @@ export const pollsSlice = createSlice({
 
 export const selectAllPolls = state => state.polls.items;
 
+export const selectPollById = pollId => state => state.polls.items[pollId];
+
 export default pollsSlice.reducer;

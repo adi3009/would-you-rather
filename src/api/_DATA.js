@@ -2,7 +2,7 @@ let users = {
   sarahedo: {
     id: 'sarahedo',
     name: 'Sarah Edo',
-    avatarURL: 'avatars/avatar1.jpg',
+    avatarURL: '/avatars/avatar1.jpg',
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionTwo',
@@ -14,7 +14,7 @@ let users = {
   tylermcginnis: {
     id: 'tylermcginnis',
     name: 'Tyler McGinnis',
-    avatarURL: 'avatars/avatar2.jpg',
+    avatarURL: '/avatars/avatar2.jpg',
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
       "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -24,7 +24,7 @@ let users = {
   johndoe: {
     id: 'johndoe',
     name: 'John Doe',
-    avatarURL: 'avatars/avatar4.jpg',
+    avatarURL: '/avatars/avatar4.jpg',
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',
@@ -199,4 +199,16 @@ export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
       res()
     }, 500)
   })
+}
+
+export const isAnswered = (poll, author) => poll.optionOne.votes.includes(author) || poll.optionTwo.votes.includes(author);
+
+export function calculateMetrics(poll) {
+  const optionOne = poll.optionOne.votes.length;
+  const optionTwo = poll.optionTwo.votes.length;
+  const total =  optionOne + optionTwo;
+  const percentOne = optionOne / total * 100;
+  const percentTwo = optionTwo / total * 100;
+
+  return [optionOne, optionTwo, total, percentOne, percentTwo];
 }

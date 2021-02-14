@@ -3,17 +3,33 @@ import PageTitle from './PageTitle';
 import PollList from './PollList';
 import {useDispatch, useSelector} from 'react-redux';
 import {fetchPolls, selectAllPolls} from '../slices/pollsSlice';
+import {selectLoggedInUser} from '../slices/authSlice';
 
 function PollsContainer() {
   const status = useSelector(state => state.polls.status);
+
+  const loggedInUser = useSelector(selectLoggedInUser);
 
   const dispatch = useDispatch();
 
   const allPolls = useSelector(selectAllPolls);
 
-  const answeredPolls = Object.values(allPolls).filter(poll => poll.optionOne.votes.length > 0  || poll.optionTwo.votes.length > 0);
+  const splitPolls = () => {
+    const answered = [];
+    const notAnswered = [];
 
-  const notAnsweredPolls = Object.values(allPolls).filter(poll => !poll.optionOne.votes.length && !poll.optionTwo.votes.length);
+    Object.values(allPolls).forEach(poll => {
+      if (poll.optionOne.votes.includes(loggedInUser.id) || poll.optionTwo.votes.includes(loggedInUser.id)) {
+        answered.push(poll);
+      } else {
+        notAnswered.push(poll);
+      }
+    });
+
+    return [answered, notAnswered];
+  };
+
+  const [answeredPolls, notAnsweredPolls] = splitPolls();
 
   const [showAnswered, setShowAnswered] = useState();
 

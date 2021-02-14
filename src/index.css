@@ -21,3 +21,7 @@
 .btn-action-primary {
   @apply bg-secondary hover:bg-secondary400
 }
+
+.poll-option {
+  @apply rounded py-6 px-5 bg-primary900 flex justify-between items-center;
+}

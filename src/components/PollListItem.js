@@ -1,6 +1,7 @@
 import Avatar from './Avatar';
 import {useSelector} from 'react-redux';
 import {selectAllUsers} from '../slices/usersSlice';
+import {Link} from 'react-router-dom';
 
 function PollListItem({poll}) {
   const {id, author, optionOne, optionTwo} = poll;
@@ -17,7 +18,7 @@ function PollListItem({poll}) {
       <div className="ml-4">
         <h5 className="text-2xl">Would you rather</h5>
         <p className="text-sm text-gray-500 mt-2">{text}</p>
-        <button className="btn mt-4">View Poll</button>
+        <Link to={`/questions/${id}`} className="btn mt-4">View Poll</Link>
       </div>
     </div>
   );
