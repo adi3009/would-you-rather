@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import {addPoll} from '../slices/pollsSlice';
 import {selectLoggedInUser} from '../slices/authSlice';
+import {pollAdded} from '../slices/usersSlice';
 
 function NewPoll() {
 
@@ -26,11 +27,12 @@ function NewPoll() {
   const handlePollSave = async (e) => {
     e.preventDefault();
     if (optionOne && optionTwo) {
-      await dispatch(addPoll({
+      const result = await dispatch(addPoll({
         optionOneText: optionOne,
         optionTwoText: optionTwo,
         author: loggedInUser.id
       }));
+      dispatch(pollAdded(result.payload));
       history.push('/');
     }
   };

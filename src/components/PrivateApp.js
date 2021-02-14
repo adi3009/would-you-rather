@@ -5,6 +5,7 @@ import PollsContainer from './PollsContainer';
 import Sidebar from './Sidebar';
 import NewPoll from './NewPoll';
 import ViewPoll from './ViewPoll';
+import LeaderBoard from './LeaderBoard';
 
 function PrivateApp() {
 
@@ -25,6 +26,7 @@ function PrivateApp() {
             </div>
           </Route>
           <Route exact path="/questions/:id" component={ViewPoll}/>
+          <Route exact path={`${path}leaderboard`} component={LeaderBoard}/>
           <Route exact path={path} component={PollsContainer}/>
           <Route path="*">
             Not found

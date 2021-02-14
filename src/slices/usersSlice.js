@@ -8,7 +8,11 @@ export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
 export const usersSlice = createSlice({
   name: 'users',
   initialState: {},
-  reducers: {},
+  reducers: {
+    pollAdded(state, action) {
+      state[action.payload.author].questions.push(action.payload.id);
+    }
+  },
   extraReducers: {
     [fetchUsers.fulfilled]: (state, action) => {
       return action.payload;
@@ -19,5 +23,7 @@ export const usersSlice = createSlice({
 export const selectAllUsers = state => state.users;
 
 export const selectUserById = uid => state => state.users[uid];
+
+export const {pollAdded} = usersSlice.actions;
 
 export default usersSlice.reducer;
