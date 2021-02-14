@@ -207,8 +207,8 @@ export function calculateMetrics(poll) {
   const optionOne = poll.optionOne.votes.length;
   const optionTwo = poll.optionTwo.votes.length;
   const total =  optionOne + optionTwo;
-  const percentOne = optionOne / total * 100;
-  const percentTwo = optionTwo / total * 100;
+  const percentOne = Math.round(optionOne / total * 100);
+  const percentTwo = Math.round(optionTwo / total * 100);
 
   return [optionOne, optionTwo, total, percentOne, percentTwo];
 }

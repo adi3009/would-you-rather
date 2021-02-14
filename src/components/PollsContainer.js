@@ -55,7 +55,7 @@ function PollsContainer() {
     <React.Fragment>
       <PageTitle title={showAnswered ? 'Answered' : 'Not Answered'}/>
       <div className="mt-24 ml-6">
-        <PollList polls={polls}/>
+        {status === 'loading' ? <h4 className="text-lg">Loading...</h4> : <PollList polls={polls}/> }
       </div>
       <div className="fixed bottom-0 right-0 w-2/3 bg-primary900 text-white">
         <div className="flex items-center">
