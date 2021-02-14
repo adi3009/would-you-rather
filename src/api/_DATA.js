@@ -204,6 +204,10 @@ export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
 export const isAnswered = (poll, author) => poll.optionOne.votes.includes(author) || poll.optionTwo.votes.includes(author);
 
 export function calculateMetrics(poll) {
+  if (!poll) {
+    return [0, 0, 0, 0, 0];
+  }
+
   const optionOne = poll.optionOne.votes.length;
   const optionTwo = poll.optionTwo.votes.length;
   const total =  optionOne + optionTwo;

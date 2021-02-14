@@ -31,9 +31,9 @@ export const authSlice = createSlice({
 });
 
 export const selectLoggedInUser = state => {
-  const userId = state.auth.userId || localStorage.getItem(STORAGE_KEY);
+  const userId = state.auth.userId;
 
-  return state.users[userId];
+  return state.users.items[userId];
 };
 
 export default authSlice.reducer;

@@ -24,13 +24,13 @@ function Sidebar({user}) {
         <nav className="mt-8">
           <ul>
             <li className="px-2 py-4 hover:bg-primary50">
-              <NavLink to="/" activeClassName="text-primary">Home</NavLink>
+              <NavLink to="/" exact activeClassName="text-primary">Home</NavLink>
             </li>
             <li className="px-2 py-4 hover:bg-primary50">
-              <NavLink to="/leaderboard" activeClassName="text-primary">Leaderboard</NavLink>
+              <NavLink to="/leaderboard" exact activeClassName="text-primary">Leaderboard</NavLink>
             </li>
             <li className="px-2 py-4 hover:bg-primary50">
-              <NavLink to="/add" activeClassName="text-primary">New/Add</NavLink>
+              <NavLink to="/add" exact activeClassName="text-primary">New/Add</NavLink>
             </li>
           </ul>
         </nav>

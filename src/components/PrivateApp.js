@@ -6,6 +6,7 @@ import Sidebar from './Sidebar';
 import NewPoll from './NewPoll';
 import ViewPoll from './ViewPoll';
 import LeaderBoard from './LeaderBoard';
+import NotFound from './NotFound';
 
 function PrivateApp() {
 
@@ -28,9 +29,7 @@ function PrivateApp() {
           <Route exact path="/questions/:id" component={ViewPoll}/>
           <Route exact path={`${path}leaderboard`} component={LeaderBoard}/>
           <Route exact path={path} component={PollsContainer}/>
-          <Route path="*">
-            Not found
-          </Route>
+          <Route path="*" component={NotFound}/>
         </Switch>
       </div>
     </div>

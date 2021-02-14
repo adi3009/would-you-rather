@@ -29,7 +29,7 @@ function ViewPoll() {
   const [optionOne, optionTwo, total, percentOne, percentTwo] = calculateMetrics(poll);
 
   const answeredContent =
-    <div className="border rounded shadow-xl p-5 grid grid-col-1 gap-2">
+    poll && <div className="border rounded shadow-xl p-5 grid grid-col-1 gap-2">
       <div className="justify-self-center">
         <Avatar url={author.avatarURL}/>
       </div>
