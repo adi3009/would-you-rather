@@ -9,8 +9,8 @@ function Sidebar({user}) {
 
   const history = useHistory();
 
-  const handleLogout = () => {
-    dispatch(logout());
+  const handleLogout = async () => {
+    await dispatch(logout());
     history.replace('/login');
   };
 

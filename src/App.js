@@ -13,7 +13,7 @@ function App() {
       <Switch>
         <Route exact path="/login" component={LoginForm}/>
         <Route path="/"
-               render={({location}) => loggedInUser ? <PrivateApp/>: <Redirect to={{
+               render={({location}) => loggedInUser ? <PrivateApp/> : <Redirect to={{
                  pathname: '/login',
                  state: {from: location}
                }}/>}

@@ -24,9 +24,9 @@ function LoginForm() {
     setSelectedUser(e.target.value);
   };
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     if (selectedUser) {
-      dispatch(login(selectedUser));
+      await dispatch(login(selectedUser));
       history.replace(from, location.state);
     }
   };
