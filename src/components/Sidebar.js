@@ -29,6 +29,9 @@ function Sidebar({user}) {
             <li className="px-2 py-4 hover:bg-primary50">
               <NavLink to="/leaderboard" activeClassName="text-primary">Leaderboard</NavLink>
             </li>
+            <li className="px-2 py-4 hover:bg-primary50">
+              <NavLink to="/add" activeClassName="text-primary">New/Add</NavLink>
+            </li>
           </ul>
         </nav>
         <div className="border-t">

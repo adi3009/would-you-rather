@@ -11,13 +11,13 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/"
+        <Route exact path="/login" component={LoginForm}/>
+        <Route path="/"
                render={({location}) => loggedInUser ? <PrivateApp/>: <Redirect to={{
                  pathname: '/login',
                  state: {from: location}
                }}/>}
         />
-        <Route exact path="/login" component={LoginForm}/>
       </Switch>
     </Router>
   );
