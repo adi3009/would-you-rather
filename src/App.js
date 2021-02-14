@@ -1,8 +1,8 @@
 import {BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom';
 import LoginForm from './components/LoginForm';
-import Sidebar from './components/Sidebar';
 import {useSelector} from 'react-redux';
 import {selectLoggedInUser} from './slices/authSlice';
+import PrivateApp from './components/PrivateApp';
 
 function App() {
 
@@ -12,7 +12,7 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/"
-               render={({location}) => loggedInUser ? <Sidebar user={loggedInUser}/>: <Redirect to={{
+               render={({location}) => loggedInUser ? <PrivateApp/>: <Redirect to={{
                  pathname: '/login',
                  state: {from: location}
                }}/>}
