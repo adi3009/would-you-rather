@@ -10,7 +10,7 @@ function LoginForm() {
 
   const location = useLocation();
 
-  const from = location.state || '/';
+  const {from} = location.state || { from: { pathname: "/" } };
 
   const users = useSelector(selectAllUsers);
 
@@ -27,7 +27,7 @@ function LoginForm() {
   const handleLogin = () => {
     if (selectedUser) {
       dispatch(login(selectedUser));
-      history.replace(from);
+      history.replace(from, location.state);
     }
   };
 
