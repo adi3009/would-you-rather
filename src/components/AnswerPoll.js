@@ -5,6 +5,7 @@ import {answerPoll} from '../slices/pollsSlice';
 import {useDispatch, useSelector} from 'react-redux';
 import {selectLoggedInUser} from '../slices/authSlice';
 import {useHistory} from 'react-router-dom';
+import {pollAnswered} from '../slices/usersSlice';
 
 function AnswerPoll({author, poll}) {
   const data = {optionOne: 'optionOne', optionTwo: 'optionTwo'};
@@ -29,6 +30,7 @@ function AnswerPoll({author, poll}) {
       answer
     };
     await dispatch(answerPoll(pollAnswer));
+    await dispatch(pollAnswered(pollAnswer));
     history.push('/');
   };
 

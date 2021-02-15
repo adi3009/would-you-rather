@@ -1,4 +1,4 @@
-import {createAsyncThunk, createSlice, current} from '@reduxjs/toolkit';
+import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 import {_getUsers} from '../api/_DATA';
 
 export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
@@ -14,6 +14,9 @@ export const usersSlice = createSlice({
   reducers: {
     pollAdded(state, action) {
       state.items[action.payload.author].questions.push(action.payload.id);
+    },
+    pollAnswered(state, action) {
+      state.items[action.payload.authedUser].answers[action.payload.qid] = action.payload.answer;
     }
   },
   extraReducers: {
@@ -33,6 +36,6 @@ export const selectAllUsers = state => state.users.items;
 
 export const selectUserById = uid => state => state.users.items[uid];
 
-export const {pollAdded} = usersSlice.actions;
+export const {pollAdded, pollAnswered} = usersSlice.actions;
 
 export default usersSlice.reducer;
